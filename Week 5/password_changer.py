@@ -1,40 +1,50 @@
 if __name__ == "__main__":
     while True:
 
+        hasuppercase = 0
+        haslowercase = 0
+        hasdigit = 0
+        hasspecial = 0
+        requirements = 0
+
         possiblepass = input("Enter a new password: ")
 
-        hasuppercase = haslowercase = hasdigit = hasspecial = False
-
-        # Detecting whether the password has an upper case letter.
+        # Detecting whether the password has each type of character.
 
         for character in possiblepass:
             if character.isupper():
-                hasuppercase = True
+                hasuppercase = hasuppercase + 1
+                requirements = requirements + 1
 
             elif character.islower():
-                haslowercase = True
+                haslowercase = haslowercase + 1
+                requirements = requirements + 1
 
             elif character.isdigit():
-                hasdigit = True
+                hasdigit = hasdigit + 1
+                requirements = requirements + 1
 
             else:
-                hasspecial = True
-                
-            print("Password does not meet the requirements. Try Again.")
+                hasspecial = hasspecial + 1
+                requirements = requirements + 1
 
-            if hasuppercase : False
-            print(" - Requires an upper case letter.")
+        if requirements < 4:
+                    print("Password does not meets the requirements.")
+                    print()
 
-            elif haslowercase : False
-            print(" - Requires a lower case letter.")
+        if hasuppercase == 0:
+                    print(" - Requires an upper case letter.")
 
-            elif hasdigit : False
-            print(" - Requires a digit/number.")
+        if haslowercase == 0:
+                    print(" - Requires a lower case letter.")
 
-            elif hasspecial : False
-            print(" - Requires a special character.")
+        if hasdigit == 0:
+                    print(" - Requires a digit/number.")
 
-            else:
-            print("Password meets the requirements.")
-            print()
-            continue
+        if hasspecial == 0:
+                    print(" - Requires a special character.")
+
+        if hasuppercase and haslowercase and hasdigit and hasspecial == 1:
+                    print("Password meets the requirements.")
+                    print()
+                    break
