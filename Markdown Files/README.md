@@ -1,0 +1,1 @@
+This folder is used to store files to be used in markdown such as images.
